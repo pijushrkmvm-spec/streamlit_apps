@@ -9,7 +9,7 @@ st.subheader("Developed for Ramakrishna Mission Vidyamandira - Department of Mic
 st.write("Upload a FASTQ file to convert and extract sequences into FASTA format.")
 
 # About section
-with st.expander("About & How to Use", expanded=True):
+with st.expander("About & How to Use", expanded=False):
     st.markdown("""
     ### How to Use
     1. **Upload your FASTQ file** (`.fastq` or `.fq`) using the file uploader below (Maximum file size 500MB per file).
