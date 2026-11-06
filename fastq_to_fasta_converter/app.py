@@ -18,19 +18,28 @@ with st.expander("About & How to Use", expanded=False):
 
     ---
 
-    ### Want to convert larger fastq file?
-    You can get the converter function from the GitHub['https://github.com/pijushrkmvm-spec/streamlit_apps/edit/main/fastq_to_fasta_converter/static_script'] repository.
-    You can clone the script into your local machine and run it from the folder where you kept the fastq file
-    Please keep in mind it will use RAM from your local machine, please select the input file cautiously
-
-    ---
-
     ### Scientific Note: Multi-FASTA Output
     This tool outputs a **Multi-FASTA** format file where each sequence record is preserved with its corresponding original read identifier from the FASTQ header (`>Header`).
 
     * **Preserving Read Identity:** Every raw sequencing read represents an independent biological fragment or single transcript. Retaining individual read headers is critical for preserving variant information and read boundaries.
     * **Downstream Compatibility:** Most bioinformatic software (e.g., BLAST, BWA, Bowtie2, Minimap2, spades) expects multi-record FASTA format when aligning, assembling, or quantifying high-throughput sequencing data.
     * **Quality Score Removal:** FASTQ quality scores (Phred lines) are stripped out to generate a lightweight, sequence-only FASTA payload.
+    """)
+
+# Local script instruction
+with st.expander("Converting Large FASTQ Files (>500 MB)?"):
+    st.markdown("""
+    For massive datasets that exceed web browser memory limits, run the lightweight Python script locally on your computer:
+
+    1. Get the standalone Python script from my [GitHub Repository](https://github.com/pijushrkmvm-spec/streamlit_apps/tree/main/fastq_to_fasta_converter/static_script).
+    2. Run the script in your terminal or command prompt:
+       ```bash
+       python static_script.py
+       ```
+    3. Enter the full path or filename of your `.fastq` file when prompted (e.g., `C:/data/sample.fastq` or `SRR20611137_1.fastq`).
+    4. The converted `.fasta` file will automatically be saved in the same folder as your input file!
+
+    > **Note:** Running locally streams data line-by-line directly from your disk with near-zero RAM footprint ($O(1)$ memory complexity), allowing you to process multi-gigabyte files effortlessly without crashing your system.
     """)
 
 # File Uploader
