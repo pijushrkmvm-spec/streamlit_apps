@@ -100,9 +100,9 @@ def crispr_predictor(forward_seq):
     return df
 
 # streamlit app
-st.set_page_config(page_title="CRISPR gRNA Designer", layout="wide")
+st.set_page_config(page_title="CRISPR gRNA Predictor", layout="wide")
 
-st.title("CRISPR-Cas9 gRNA Designer")
+st.title("CRISPR-Cas9 gRNA Predictor")
 st.write("Upload a target DNA sequence in FASTA format to predict and score potential SpCas9 guide RNAs.")
 
 # About section
